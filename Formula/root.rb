@@ -98,7 +98,7 @@ class Root < Formula
       # Work around superenv stripping out isysroot leading to errors with
       # libsystem_symptoms.dylib (only available on >= 10.12) and
       # libsystem_darwin.dylib (only available on >= 10.13)
-      if MacOS.version < :high_sierra
+      if OS.mac? && MacOS.version < :high_sierra
         system "xcrun", "make", "install"
       else
         system "make", "install"
